@@ -141,10 +141,11 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 ## Submission Template
 
 ### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+he goal is to develop the most accurate approach for recognizing three classes of objects in an image dataset. Our dataset is the Waymo Open Dataset, and the three classes are cars, pedestrians, and cyclists. The desired level of accuracy is to achieve or surpass human-level performance, where a human can recognize the three classes of objects in less than one second per image. We will apply exploratory data analysis, use pre-trained object detection models to detect the classes, fine-tune hyperparameters, and augment our dataset to improve accuracy. Achieving higher accuracy will improve our ability to make better decisions and ensure the safety of self-driving cars. 
+As a final step, we will use the evaluation dataset to predict a sequence of images and accurately classify the three classes in a way that is representative of real-world scenarios.
 
 ### Set up
-This section should contain a brief description of the steps to follow to run the code for this repository.
+At the top, you can find the steps to follow to run the code. I used the virtual machine provided by Udacity, which has a GPU that is important for training neural networks. To perform exploratory data analysis, open the Exploratory Data Analysis.ipynb notebook in Jupyter Notebook. To train the model, use experiment-2 in the experiment directory. If you prefer to run the code locally, you can either use the Docker file or the requirements.txt file to install the necessary libraries.
 
 ### Dataset
 #### Dataset analysis
@@ -154,7 +155,12 @@ This section should detail the cross validation strategy and justify your approa
 
 ### Training
 #### Reference experiment
+My first step was to check the dataset. However, it wasn't as simple as just opening a folder and checking the images. I had to use the display_images function to view some examples of the classes. During this process, I discovered that the classification of the classes used label encoding, where 1 represented cars, 2 represented pedestrians, and 4 represented bicycles. However, I noticed that there was no class 3.
 This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
 
 #### Improve on the reference
 This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+
+
+## Submission
+###
