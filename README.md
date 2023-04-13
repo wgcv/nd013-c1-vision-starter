@@ -162,6 +162,7 @@ My recommendation is to add more pedestrians and bicycles to the dataset to crea
 
 #### Cross validation
 In the project, a script was provided to split up the dataset. As a general guideline, the recommended split is 60%-70% for training, 20% for testing, and 10%-20% for evaluation. The evaluation dataset contains a continuous image sequence that can be used to create animations and simulate real-world situations. This suggests that using a recurrent neural network (RNN) may help improve the accuracy of the predictions. To avoid overfitting, the training data is shuffled.
+
 Although the provided script splits the dataset into training, testing, and evaluation sets, there are many other methods for cross-validation that can be used, including: Leave p out cross-validation, Leave one out cross-validation, Holdout cross-validation, Repeated random subsampling validation, k-fold cross-validation, and others.
 
 ### Training
@@ -190,7 +191,9 @@ After making these changes, the model was learning and producing better results.
 
 ##### Experiment 2
 My model was ready for submission, but I wanted to improve its performance. Upon checking, I found that the tools available for preventing overfitting were limited to pre-processing, augmentation, and shuffling the dataset. To address this, I added some dropout configurations to the model, and further reduced the learning rate to 0.001. I used a dropout keep probability of 0.8 to prevent overfitting.
+
 I would like to have used a bigger batch size and more epochs, but the resources of the workspace were limited. However, in the future, we can improve the resources available to us.
+
 <img width="1118" alt="Screenshot 2023-04-12 at 8 08 25 PM" src="https://user-images.githubusercontent.com/8989089/231619553-560a6f55-9ce5-4826-a695-540f0f9afc54.png">
 
 I saw that we were able to continue training without any overfitting problems and that we could have kept improving the model, but unfortunately, the resources available were limited. Therefore, I had to stop the project, but we achieved good results nonetheless.
