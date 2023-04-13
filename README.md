@@ -141,11 +141,11 @@ python inference_video.py --labelmap_path label_map.pbtxt --model_path experimen
 ## Submission
 
 ### Project overview
-he goal is to develop the most accurate approach for recognizing three classes of objects in an image dataset. Our dataset is the Waymo Open Dataset, and the three classes are cars, pedestrians, and cyclists. The desired level of accuracy is to achieve or surpass human-level performance, where a human can recognize the three classes of objects in less than one second per image. We will apply exploratory data analysis, use pre-trained object detection models to detect the classes, fine-tune hyperparameters, and augment our dataset to improve accuracy. Achieving higher accuracy will improve our ability to make better decisions and ensure the safety of self-driving cars. 
+The goal is to develop the most accurate approach for recognizing three classes of objects in an image dataset. Our dataset is the Waymo Open Dataset, and the three classes are cars, pedestrians, and cyclists. The desired level of accuracy is to achieve or surpass human-level performance, where a human can recognize the three classes of objects in less than one second per image. We will apply exploratory data analysis, use pre-trained object detection models to detect the classes, fine-tune hyperparameters, and augment our dataset to improve accuracy. Achieving higher accuracy will improve our ability to make better decisions and ensure the safety of self-driving cars. 
 As a final step, we will use the evaluation dataset to predict a sequence of images and accurately classify the three classes in a way that is representative of real-world scenarios.
 
 ### Set up
-At the top, you can find the steps to follow to run the code. I used the virtual machine provided by Udacity, which has a GPU that is important for training neural networks. To perform exploratory data analysis, open the Exploratory Data Analysis.ipynb notebook in Jupyter Notebook. To train the model, use experiment-2 in the experiment directory. If you prefer to run the code locally, you can either use the Docker file or the requirements.txt file to install the necessary libraries.
+At the top, you can find the steps to follow to run the code. I used the virtual machine provided by Udacity, which has a GPU that is important for training neural networks. To perform exploratory data analysis, open the `Exploratory Data Analysis.ipynb` notebook in Jupyter Notebook. To train the model, use `experiment-2` in the `experiment` directory. If you prefer to run the code locally, you can either use the Docker file or the requirements.txt file to install the necessary libraries.
 
 ### Dataset
 #### Dataset analysis
@@ -174,7 +174,7 @@ After analyzing the loss and learning rate graphs, I realized that I needed to u
 
 #### Improve on the reference
 ##### Experiment 1
-I started experimenting with the Explore augmentations.ipynb Notebook. The random_crop_image function worked well for me, but I set the random_horizontal_flip probability to 0.3 to reduce the likelihood of flipping the image. 
+I started experimenting with the `Explore augmentations.ipynb` Notebook. The random_crop_image function worked well for me, but I set the random_horizontal_flip probability to 0.3 to reduce the likelihood of flipping the image. 
 I also added several other augmentations, including: 
 - random_image_scale
 - random_adjust_hue
