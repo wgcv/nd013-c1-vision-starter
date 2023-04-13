@@ -138,7 +138,7 @@ Finally, you can create a video of your model's inferences for any tf record fil
 python inference_video.py --labelmap_path label_map.pbtxt --model_path experiments/reference/exported/saved_model --tf_record_path /data/waymo/testing/segment-12200383401366682847_2552_140_2572_140_with_camera_labels.tfrecord --config_path experiments/reference/pipeline_new.config --output_path animation.gif
 ```
 
-## Submission Template
+## Submission
 
 ### Project overview
 he goal is to develop the most accurate approach for recognizing three classes of objects in an image dataset. Our dataset is the Waymo Open Dataset, and the three classes are cars, pedestrians, and cyclists. The desired level of accuracy is to achieve or surpass human-level performance, where a human can recognize the three classes of objects in less than one second per image. We will apply exploratory data analysis, use pre-trained object detection models to detect the classes, fine-tune hyperparameters, and augment our dataset to improve accuracy. Achieving higher accuracy will improve our ability to make better decisions and ensure the safety of self-driving cars. 
