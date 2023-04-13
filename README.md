@@ -149,18 +149,52 @@ At the top, you can find the steps to follow to run the code. I used the virtual
 
 ### Dataset
 #### Dataset analysis
-This section should contain a quantitative and qualitative description of the dataset. It should include images, charts and other visualizations.
+My first step was to check the dataset. However, it wasn't as simple as just opening a folder and checking the images. I had to use the display_images function to view some examples of the classes. During this process, I discovered that the classification of the classes used label encoding, where 1 represented cars, 2 represented pedestrians, and 4 represented bicycles. However, I noticed that there was no class 3.
+![dataset](https://user-images.githubusercontent.com/8989089/231610738-9fbc4046-1928-4c7d-807a-72cf7507688b.jpg)
+
+For my analysis, I decided to shuffle the dataset and select 10,000 images. I believe that this subset of the dataset should provide a representative sample of the entire dataset.
+![distribution](https://user-images.githubusercontent.com/8989089/231611369-cd5b26a5-fe4d-4e0b-b4e8-b121a8a0cac8.png)
+
+My recommendation is to add more pedestrians and bicycles to the dataset to create a more balanced dataset, which can help improve the prediction accuracy of these classes. Additionally, data augmentation techniques can be applied specifically to these classes to further improve their representation in the dataset.
+
 #### Cross validation
-This section should detail the cross validation strategy and justify your approach.
+In the project, a script was provided to split up the dataset. As a general guideline, the recommended split is 60%-70% for training, 20% for testing, and 10%-20% for evaluation. The evaluation dataset contains a continuous image sequence that can be used to create animations and simulate real-world situations. This suggests that using a recurrent neural network (RNN) may help improve the accuracy of the predictions. To avoid overfitting, the training data is shuffled.
+Although the provided script splits the dataset into training, testing, and evaluation sets, there are many other methods for cross-validation that can be used, including: Leave p out cross-validation, Leave one out cross-validation, Holdout cross-validation, Repeated random subsampling validation, k-fold cross-validation, and others.
 
 ### Training
 #### Reference experiment
-My first step was to check the dataset. However, it wasn't as simple as just opening a folder and checking the images. I had to use the display_images function to view some examples of the classes. During this process, I discovered that the classification of the classes used label encoding, where 1 represented cars, 2 represented pedestrians, and 4 represented bicycles. However, I noticed that there was no class 3.
-This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
+I was surprised by the poor results of the first experiment. The model I used was a pre-trained Single Shot Detection ResNet50, but the test results showed a very high loss value and poor performance. The model was trained on images of size 640x640 with a batch size of 2 and around 2k steps.
+<img width="1243" alt="Screenshot 2023-04-12 at 7 19 26 PM" src="https://user-images.githubusercontent.com/8989089/231613717-f7e8ada4-3c77-4525-8d1d-e833afab16b0.png">
+
+After analyzing the loss and learning rate graphs, I realized that I needed to use a smaller learning rate for my model."
+<img width="472" alt="Screenshot 2023-04-12 at 7 22 39 PM" src="https://user-images.githubusercontent.com/8989089/231614075-43657c90-cf56-42d1-82d4-aeb339c9c9c7.png">
 
 #### Improve on the reference
-This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
+##### Experiment 1
+I started experimenting with the Explore augmentations.ipynb Notebook. The random_crop_image function worked well for me, but I set the random_horizontal_flip probability to 0.3 to reduce the likelihood of flipping the image. 
+I also added several other augmentations, including: 
+- random_image_scale
+- random_adjust_hue
+- random_adjust_saturation
+- random_adjust_brightness
+- random_adjust_contrast
+- random_distort_color. 
+ 
+These augmentations were meant to simulate different lighting and camera conditions, which can impact the model accuracy.
 
+After that, I started testing with a learning rate of 0.004 and a batch size of 8 because 2 was too low, but a high number should have more resources. However, I realized that the learning rate should be very small because we are using a pre-trained model. If the optimizer overshoots the optimal weights, it can lead to poor convergence and high loss values.
+After making these changes, the model was learning and producing better results.
+
+##### Experiment 2
+My model was ready for submission, but I wanted to improve its performance. Upon checking, I found that the tools available for preventing overfitting were limited to pre-processing, augmentation, and shuffling the dataset. To address this, I added some dropout configurations to the model, and further reduced the learning rate to 0.001. I used a dropout keep probability of 0.8 to prevent overfitting.
+I would like to have used a bigger batch size and more epochs, but the resources of the workspace were limited. However, in the future, we can improve the resources available to us.
+<img width="1118" alt="Screenshot 2023-04-12 at 8 08 25 PM" src="https://user-images.githubusercontent.com/8989089/231619553-560a6f55-9ce5-4826-a695-540f0f9afc54.png">
+
+I saw that we were able to continue training without any overfitting problems and that we could have kept improving the model, but unfortunately, the resources available were limited. Therefore, I had to stop the project, but we achieved good results nonetheless.
+
+<img width="1429" alt="Screenshot 2023-04-12 at 8 11 05 PM" src="https://user-images.githubusercontent.com/8989089/231619848-77ff8c45-9f27-4fbd-95f5-4f69eadb615d.png">
 
 ## Submission
-###
+
+<img width="1429" alt="Screenshot 2023-04-12 at 8 11 05 PM" src="https://user-images.githubusercontent.com/8989089/231619848-77ff8c45-9f27-4fbd-95f5-4f69eadb615d.png">
+
