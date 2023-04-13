@@ -150,10 +150,13 @@ At the top, you can find the steps to follow to run the code. I used the virtual
 ### Dataset
 #### Dataset analysis
 My first step was to check the dataset. However, it wasn't as simple as just opening a folder and checking the images. I had to use the display_images function to view some examples of the classes. During this process, I discovered that the classification of the classes used label encoding, where 1 represented cars, 2 represented pedestrians, and 4 represented bicycles. However, I noticed that there was no class 3.
-![dataset](https://user-images.githubusercontent.com/8989089/231610738-9fbc4046-1928-4c7d-807a-72cf7507688b.jpg)
+<img width="1243" alt="" src="https://user-images.githubusercontent.com/8989089/231610738-9fbc4046-1928-4c7d-807a-72cf7507688b.jpg">
 
 For my analysis, I decided to shuffle the dataset and select 10,000 images. I believe that this subset of the dataset should provide a representative sample of the entire dataset.
-![distribution](https://user-images.githubusercontent.com/8989089/231611369-cd5b26a5-fe4d-4e0b-b4e8-b121a8a0cac8.png)
+
+
+<img width="512" alt="" src="https://user-images.githubusercontent.com/8989089/231611369-cd5b26a5-fe4d-4e0b-b4e8-b121a8a0cac8.png">
+
 
 My recommendation is to add more pedestrians and bicycles to the dataset to create a more balanced dataset, which can help improve the prediction accuracy of these classes. Additionally, data augmentation techniques can be applied specifically to these classes to further improve their representation in the dataset.
 
@@ -195,6 +198,5 @@ I saw that we were able to continue training without any overfitting problems an
 <img width="1429" alt="Screenshot 2023-04-12 at 8 11 05 PM" src="https://user-images.githubusercontent.com/8989089/231619848-77ff8c45-9f27-4fbd-95f5-4f69eadb615d.png">
 
 ## Submission
-
-<img width="1429" alt="Screenshot 2023-04-12 at 8 11 05 PM" src="https://user-images.githubusercontent.com/8989089/231619848-77ff8c45-9f27-4fbd-95f5-4f69eadb615d.png">
+<img width="1429" alt="Screenshot 2023-04-12 at 8 11 05 PM" src="https://github.com/wgcv/nd013-c1-vision-starter/raw/main/animation_compress.gif">
 
